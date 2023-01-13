@@ -14,7 +14,7 @@ and after you can put stuff to set the background and transparent terminals
 here is an example .xinitrc
 
 exec swm &
-sleep 0.1
+sleep 1
 feh --bg-scale ~/backgrounds/wallpaper.jpg &
 xcompmgr &
 sleep infinity
