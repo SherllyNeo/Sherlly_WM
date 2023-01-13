@@ -57,6 +57,7 @@ where
         "M-t" => spawn("st"),
         "M-slash" => Box::new(toggle_scratch),
         "M-w" => spawn("firefox"),
+        "M-n" => spawn("st -e newsboat"),
 
         // Session management
         "M-A-l" => spawn("xflock4"),
