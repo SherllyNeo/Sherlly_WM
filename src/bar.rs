@@ -13,6 +13,7 @@ use penrose_ui::{
 use penrose_ui::bar::widgets::{RefreshText};
 use std::fs;
 use crate::reader::reader;
+use crate::api_call::api_call;
 
 fn battery_sum(bat: &'static str, style: &TextStyle) -> RefreshText {
         RefreshText::new(style, move || battery_text(bat).unwrap_or_default())
@@ -50,7 +51,7 @@ fn read_sys_file(bat: &str, fname: &str) -> Option<String> {
 }
 
 fn weather_sum(style: &TextStyle) -> RefreshText {
-        RefreshText::new(style, move || reader("./statusbar/clock").unwrap_or_default())
+        RefreshText::new(style, move || api_call("https://wttr.in/leicester?format=4").unwrap_or_default())
 }
 
 // Mostly the example dwm bar from the main repo but recreated here so it's easier to tinker
@@ -94,7 +95,7 @@ pub fn status_bar<X: XConn>() -> penrose_ui::Result<StatusBar<X>> {
             Box::new(wifi_network(&padded_style)),
             Box::new(battery_sum("BAT1", &padded_style)),
             Box::new(battery_sum("BAT0", &padded_style)),
-            //Box::new(weather_sum(&padded_style)),
+            Box::new(weather_sum(&padded_style)),
             //Box::new(amixer_volume("Master", &padded_style)),
             Box::new(current_date_and_time(&padded_style)),
         ],
