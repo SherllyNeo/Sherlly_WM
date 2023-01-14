@@ -6,6 +6,7 @@ pub mod actions;
 pub mod bar;
 pub mod bindings;
 pub mod layouts;
+pub mod reader;
 
 pub type KeyHandler = Box<dyn KeyEventHandler<RustConn>>;
 

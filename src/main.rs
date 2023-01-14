@@ -1,4 +1,5 @@
 //! My personal penrose config
+//! 
 use penrose::{
     core::{bindings::parse_keybindings_with_xmodmap, Config, WindowManager},
     extensions::hooks::{

@@ -12,6 +12,8 @@ use penrose_ui::{
 };
 use penrose_ui::bar::widgets::{RefreshText};
 use std::fs;
+use crate::reader::reader;
+
 fn battery_sum(bat: &'static str, style: &TextStyle) -> RefreshText {
         RefreshText::new(style, move || battery_text(bat).unwrap_or_default())
 }
@@ -45,6 +47,10 @@ fn read_sys_file(bat: &str, fname: &str) -> Option<String> {
         fs::read_to_string(format!("/sys/class/power_supply/{bat}/{fname}"))
                     .ok()
                             .map(|s| s.trim().to_string())
+}
+
+fn weather_sum(style: &TextStyle) -> RefreshText {
+        RefreshText::new(style, move || reader("./statusbar/clock").to_owned().unwrap_or_default())
 }
 
 // Mostly the example dwm bar from the main repo but recreated here so it's easier to tinker
