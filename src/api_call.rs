@@ -17,7 +17,7 @@ pub fn api_call(url: &str) -> Option<String> {
               }
     let second = time::Duration::from_secs(1);
     let re = Regex::new("\n").unwrap();
-    let mut response_text = re.replace_all(&response_text," ");
+    let mut response_text = re.replace_all(&response_text,"");
     let regex = Regex::new(concat!(
                      "[",
                              "\u{01F600}-\u{01F64F}", // emoticons
