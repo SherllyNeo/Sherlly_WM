@@ -16,7 +16,7 @@ pub fn api_call(url: &str) -> Option<String> {
        transfer.perform().unwrap();
               }
     let second = time::Duration::from_secs(1);
-    let re = Regex::new("\n").unwrap();
+    let re = Regex::new("\n| | ").unwrap();
     let mut response_text = re.replace_all(&response_text,"");
     let regex = Regex::new(concat!(
                      "[",
