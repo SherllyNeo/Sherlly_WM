@@ -3,7 +3,7 @@ use curl::easy::Easy;
 pub fn api_call(url: &str) -> Option<String> {
     let mut easy = Easy::new();
     let mut response_text = String::new();
-    easy.url(url);
+    easy.url(url).unwrap();
           {
            let mut transfer = easy.transfer();
            transfer.write_function(|data| {
