@@ -34,8 +34,9 @@ pub fn api_call(url: &str) -> Option<String> {
                                  ))
                               .unwrap();
   
-    let response_text = regex.replace_all(&response_text,"").to_string();
-    // thread::sleep(second);
+    let regex_col = Regex::new(":").unwrap();;
+    let mut response_text = regex.replace_all(&response_text,"").to_string();
+    let mut response_text = regex_col.replace_all(&response_text,": ").to_string();
     
     
    Some(format!("{response_text} |"))
