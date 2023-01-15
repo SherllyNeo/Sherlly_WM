@@ -35,7 +35,7 @@ pub fn api_call(url: &str) -> Option<String> {
                               .unwrap();
   
     let response_text = regex.replace_all(&response_text,"").to_string();
-    thread::sleep(second);
+    // thread::sleep(second);
     
     
    Some(format!("{response_text} |"))
