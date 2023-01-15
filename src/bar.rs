@@ -14,6 +14,7 @@ use penrose_ui::bar::widgets::{RefreshText};
 use std::fs;
 use crate::reader::reader;
 use crate::api_call::api_call;
+use penrose::util::spawn_for_output_with_args;
 
 fn battery_sum(bat: &'static str, style: &TextStyle) -> RefreshText {
         RefreshText::new(style, move || battery_text(bat).unwrap_or_default())
@@ -42,6 +43,14 @@ fn battery_text(bat: &str) -> Option<String> {
                        };
 
          Some(format!("{icon} {cap}% | "))
+}
+pub fn dt(style: &TextStyle) -> RefreshText {
+    RefreshText::new(style, || {
+        spawn_for_output_with_args("date", &["+%F (%a) %R"])
+            .unwrap_or_default()
+            .trim()
+            .to_string()
+    })
 }
 
 fn read_sys_file(bat: &str, fname: &str) -> Option<String> {
@@ -97,7 +106,7 @@ pub fn status_bar<X: XConn>() -> penrose_ui::Result<StatusBar<X>> {
             Box::new(battery_sum("BAT0", &padded_style)),
             Box::new(weather_sum(&padded_style)),
             //Box::new(amixer_volume("Master", &padded_style)),
-            Box::new(current_date_and_time(&padded_style)),
+            Box::new(dt(&padded_style)),
         ],
     )
 }
