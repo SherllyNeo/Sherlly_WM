@@ -1,4 +1,4 @@
-use crate::{BAR_HEIGHT_PX, BLACK, BLUE, FONT, GREY, MAX_ACTIVE_WINDOW_CHARS, WHITE};
+use crate::{BAR_HEIGHT_PX, BLACK, BLUE, FONT, GREY, MAX_ACTIVE_WINDOW_CHARS, WHITE,RED};
 use penrose::{x::XConn, Color};
 use penrose_ui::{
     bar::{
@@ -57,7 +57,7 @@ fn weather_sum(style: &TextStyle) -> RefreshText {
 // Mostly the example dwm bar from the main repo but recreated here so it's easier to tinker
 // with and add in debug widgets when needed.
 pub fn status_bar<X: XConn>() -> penrose_ui::Result<StatusBar<X>> {
-    let highlight: Color = BLUE.into();
+    let highlight: Color = RED.into();
     let empty_ws: Color = GREY.into();
 
     let style = TextStyle {
