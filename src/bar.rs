@@ -52,6 +52,14 @@ pub fn dt(style: &TextStyle) -> RefreshText {
             .to_string()
     })
 }
+pub fn name(style: &TextStyle) -> RefreshText {
+    RefreshText::new(style, || {
+        spawn_for_output_with_args("sb-hostname",&["Sherlly"])
+            .unwrap_or_default()
+            .trim()
+            .to_string()
+    })
+}
 
 fn read_sys_file(bat: &str, fname: &str) -> Option<String> {
         fs::read_to_string(format!("/sys/class/power_supply/{bat}/{fname}"))
@@ -101,6 +109,7 @@ pub fn status_bar<X: XConn>() -> penrose_ui::Result<StatusBar<X>> {
                 true,
                 false,
             )),
+            Box::new(name(&padded_style)),
             Box::new(wifi_network(&padded_style)),
             Box::new(battery_sum("BAT1", &padded_style)),
             Box::new(battery_sum("BAT0", &padded_style)),
