@@ -22,11 +22,9 @@ fn battery_sum(bat: &'static str, style: &TextStyle) -> RefreshText {
 
 fn battery_text(bat: &str) -> Option<String> {
         let status = read_sys_file(bat, "status")?;
-        let energy_now: u32 = read_sys_file(bat, "charge_now")?.parse().ok()?;
-        let energy_full: u32 = read_sys_file(bat, "charge_full")?.parse().ok()?;
-        let cap: u32 = read_sys_file(bat,"capacity")?.parse().ok()?;
+        let charge: u32 = read_sys_file(bat,"capacity")?.parse().ok()?;
 
-        let charge = energy_now * 100 / energy_full;
+  
 
         let icon = if status == "Charging" {
                        ""
@@ -42,7 +40,7 @@ fn battery_text(bat: &str) -> Option<String> {
                    ""
                        };
 
-         Some(format!("{icon} {cap}% | "))
+         Some(format!("{icon} {charge}% | "))
 }
 pub fn dt(style: &TextStyle) -> RefreshText {
     RefreshText::new(style, || {
