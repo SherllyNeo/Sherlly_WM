@@ -18,7 +18,7 @@ pub fn power_menu() -> KeyHandler {
 
         if let Ok(MenuMatch::Line(_, choice)) = menu.run(screen_index) {
             match choice.as_ref() {
-                "lock" => spawn("xflock4"),
+                "lock" => spawn("slock"),
                 "logout" => spawn("pkill -fi penrose"),
                 "shutdown" => spawn("sudo shutdown -h now"),
                 "reboot" => spawn("sudo reboot"),
