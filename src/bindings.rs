@@ -52,16 +52,21 @@ where
         "M-Left" => send_layout_message(|| ShrinkMain),
 
         // Launchers
-        "M-A-s" => spawn("screenshot"),
+        "M-A-s" => spawn("st -e maim screenshot.png"),
         "M-d" => spawn("dmenu_run"),
         "M-t" => spawn("st"),
         "M-slash" => Box::new(toggle_scratch),
-        "M-w" => spawn("firefox"),
-        "M-n" => spawn("st -e newsboat"),
-        "M-r" => spawn("joshuto"),
+        "M-w" => spawn("librewolf"), // browser
+        "M-n" => spawn("st -e newsboat"), //news
+        "M-r" => spawn("st -e joshuto"), // file explorer
+        "M-c" => spawn("st -e bc"), //calculator
+        "M-p" => spawn("st -e abook"), //phone book
+        "M-m" => spawn("st -e bashtop"), //manager
+    
+
 
         // Session management
-        "M-A-l" => spawn("xflock4"),
+        "M-A-l" => spawn("slock"),
         "M-A-Escape" => power_menu(),
 
         // Floating management
