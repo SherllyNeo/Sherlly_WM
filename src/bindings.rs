@@ -62,6 +62,7 @@ where
         "M-c" => spawn("st -e bc"), //calculator
         "M-p" => spawn("st -e abook"), //phone book
         "M-m" => spawn("st -e bashtop"), //manager
+        "M-z" => spawn("keepassxc"), //manager
     
 
 
