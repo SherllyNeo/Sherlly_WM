@@ -32,4 +32,4 @@ pub const MON_1: &str = "eDP-1";
 pub const MON_2: &str = "HDMI-2";
 
 pub const TERMINAL: &str = "st";
-pub const BROWSER: &str = "firefox";
+pub const BROWSER: &str = "librewolf";
