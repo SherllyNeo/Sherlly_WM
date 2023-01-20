@@ -63,7 +63,9 @@ where
         "M-p" => spawn("st -e abook"), //phone book
         "M-m" => spawn("st -e bashtop"), //manager
         "M-z" => spawn("keepassxc"), //manager
-    
+        "M-i" => spawn("display_bookmarks"), //open bookmarks
+        "M-b" => spawn("bookmark_clipped"), //bookmark whats copied
+
 
 
         // Session management
