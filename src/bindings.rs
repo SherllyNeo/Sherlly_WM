@@ -62,7 +62,8 @@ where
         "M-c" => spawn("st -e bc"), //calculator
         "M-p" => spawn("st -e abook"), //phone book
         "M-m" => spawn("st -e bashtop"), //manager
-        "M-z" => spawn("keepassxc"), //manager
+        "M-z" => spawn("passmenu"), //password manger
+        "M-A-z" => spawn("st -e addpass"), //adds password to password manager
         "M-i" => spawn("display_bookmarks"), //open bookmarks
         "M-b" => spawn("bookmark_clipped"), //bookmark whats copied
 
