@@ -64,10 +64,18 @@ fn read_sys_file(bat: &str, fname: &str) -> Option<String> {
                     .ok()
                             .map(|s| s.trim().to_string())
 }
-
-fn weather_sum(style: &TextStyle) -> RefreshText {
-        RefreshText::new(style, move || api_call("https://wttr.in/?format=4").unwrap_or_default())
+pub fn weather_sum(style: &TextStyle) -> RefreshText {
+    RefreshText::new(style, || {
+        spawn_for_output_with_args("sb-weather",&[""])
+            .unwrap_or_default()
+            .trim()
+            .to_string()
+    })
 }
+
+//fn weather_sum(style: &TextStyle) -> RefreshText {
+//        RefreshText::new(style, move || api_call("https://wttr.in/?format=4").unwrap_or_default())
+//}
 
 // Mostly the example dwm bar from the main repo but recreated here so it's easier to tinker
 // with and add in debug widgets when needed.
