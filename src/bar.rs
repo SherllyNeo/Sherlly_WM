@@ -24,7 +24,7 @@ fn battery_text(bat: &str) -> Option<String> {
         let status = read_sys_file(bat, "status")?;
         let charge: u32 = read_sys_file(bat,"capacity")?.parse().ok()?;
 
-  
+
 
         let icon = if status == "Charging" {
                        ""
@@ -66,7 +66,7 @@ fn read_sys_file(bat: &str, fname: &str) -> Option<String> {
 }
 
 fn weather_sum(style: &TextStyle) -> RefreshText {
-        RefreshText::new(style, move || api_call("https://wttr.in/leicester?format=4").unwrap_or_default())
+        RefreshText::new(style, move || api_call("https://wttr.in/?format=4").unwrap_or_default())
 }
 
 // Mostly the example dwm bar from the main repo but recreated here so it's easier to tinker
