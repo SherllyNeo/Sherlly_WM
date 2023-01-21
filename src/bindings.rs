@@ -66,6 +66,9 @@ where
         "M-A-z" => spawn("st -e addpass"), //adds password to password manager
         "M-i" => spawn("display_bookmarks"), //open bookmarks
         "M-b" => spawn("bookmark_clipped"), //bookmark whats copied
+        "M-S-m" => spawn("st -e ncmpcpp"), //music player
+        "M-e" => spawn("st -e neomutt"), //termunal email
+
 
 
 
