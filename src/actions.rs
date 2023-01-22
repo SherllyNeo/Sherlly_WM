@@ -22,7 +22,7 @@ pub fn power_menu() -> KeyHandler {
                 "logout" => spawn("pkill -fi penrose"),
                 "shutdown" => spawn("sudo shutdown -h now"),
                 "reboot" => spawn("sudo reboot"),
-                "restart-wm" => exit(0), // Wrapper script then handles restarting us
+                //"restart-wm" => exit(0), // Wrapper script then handles restarting us
                 _ => unimplemented!(),
             }
         } else {
