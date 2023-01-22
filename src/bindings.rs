@@ -68,6 +68,8 @@ where
         "M-b" => spawn("bookmark_clipped"), //bookmark whats copied
         "M-S-m" => spawn("st -e ncmpcpp"), //music player
         "M-e" => spawn("st -e neomutt"), //termunal email
+        "M-S-r" => spawn("dmenurecord"), //termunal email
+        "M-S-i" => spawn("dmenuunicode"), //termunal email
 
 
 
