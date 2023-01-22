@@ -5,7 +5,6 @@ use penrose::{
     extensions::util::dmenu::{DMenu, DMenuConfig, MenuMatch},
     util::spawn,
 };
-use std::process::exit;
 use tracing::warn;
 use tracing_subscriber::{reload::Handle, EnvFilter};
 

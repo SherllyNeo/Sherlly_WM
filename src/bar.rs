@@ -1,9 +1,9 @@
-use crate::{BAR_HEIGHT_PX, BLACK, BLUE, FONT, GREY, MAX_ACTIVE_WINDOW_CHARS, WHITE,RED};
+use crate::{BAR_HEIGHT_PX, BLACK, FONT, GREY, MAX_ACTIVE_WINDOW_CHARS, WHITE,RED};
 use penrose::{x::XConn, Color};
 use penrose_ui::{
     bar::{
         widgets::{
-            current_date_and_time, wifi_network, ActiveWindowName,
+            wifi_network, ActiveWindowName,
             CurrentLayout, Workspaces,
         },
         Position, StatusBar,
@@ -12,8 +12,6 @@ use penrose_ui::{
 };
 use penrose_ui::bar::widgets::{RefreshText};
 use std::fs;
-use crate::reader::reader;
-use crate::api_call::api_call;
 use penrose::util::spawn_for_output_with_args;
 
 fn battery_sum(bat: &'static str, style: &TextStyle) -> RefreshText {
@@ -73,9 +71,6 @@ pub fn weather_sum(style: &TextStyle) -> RefreshText {
     })
 }
 
-//fn weather_sum(style: &TextStyle) -> RefreshText {
-//        RefreshText::new(style, move || api_call("https://wttr.in/?format=4").unwrap_or_default())
-//}
 
 // Mostly the example dwm bar from the main repo but recreated here so it's easier to tinker
 // with and add in debug widgets when needed.
