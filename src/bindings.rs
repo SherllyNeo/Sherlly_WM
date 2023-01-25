@@ -57,6 +57,7 @@ where
         "M-t" => spawn("st"),
         "M-slash" => Box::new(toggle_scratch),
         "M-w" => spawn("librewolf"), // browser
+        "M-S-w" => spawn("sr -e nmtui"), // wifi
         "M-n" => spawn("st -e newsboat"), //news
         "M-r" => spawn("st -e joshuto"), // file explorer
         "M-c" => spawn("st -e bc"), //calculator
