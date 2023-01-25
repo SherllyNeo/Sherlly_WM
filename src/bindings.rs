@@ -57,19 +57,19 @@ where
         "M-t" => spawn("st"),
         "M-slash" => Box::new(toggle_scratch),
         "M-w" => spawn("librewolf"), // browser
-        "M-S-w" => spawn("sr -e nmtui"), // wifi
+        "M-S-w" => spawn("st -e nmtui"), // wifi
         "M-n" => spawn("st -e newsboat"), //news
         "M-r" => spawn("st -e joshuto"), // file explorer
         "M-c" => spawn("st -e bc"), //calculator
         "M-p" => spawn("st -e abook"), //phone book
         "M-m" => spawn("st -e bashtop"), //manager
-        "M-z" => spawn("keepassxc"), //password manger
+        "M-z" => spawn("st -e kp_bash"), //password manger
         "M-i" => spawn("display_bookmarks"), //open bookmarks
         "M-b" => spawn("bookmark_clipped"), //bookmark whats copied
         "M-S-m" => spawn("st -e ncmpcpp"), //music player
-        "M-e" => spawn("st -e neomutt"), //termunal email
-        "M-S-r" => spawn("dmenurecord"), //termunal email
-        "M-S-i" => spawn("dmenuunicode"), //termunal email
+        "M-e" => spawn("st -e neomutt"), //terminal email
+        "M-S-r" => spawn("dmenurecord"), //recording
+        "M-S-i" => spawn("dmenuunicode"), //terminal emoji
 
 
 
