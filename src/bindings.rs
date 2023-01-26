@@ -59,6 +59,7 @@ where
         "M-w" => spawn("librewolf"), // browser
         "M-S-w" => spawn("st -e nmtui"), // wifi
         "M-n" => spawn("st -e newsboat"), //news
+        "M-S-n" => spawn("rssadd_yt"), //news
         "M-r" => spawn("st -e joshuto"), // file explorer
         "M-c" => spawn("st -e bc"), //calculator
         "M-p" => spawn("st -e abook"), //phone book
