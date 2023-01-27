@@ -71,7 +71,7 @@ where
         "M-e" => spawn("st -e neomutt"), //terminal email
         "M-S-r" => spawn("dmenurecord"), //recording
         "M-S-i" => spawn("dmenuunicode"), //terminal emoji
-        "M-x" => spawn("zathura ~/.local/share/jars_help.pdf &"), //help menu
+        "M-x" => spawn("zathura ~/.local/share/jars_help.pdf "), //help menu
 
 
 
