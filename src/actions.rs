@@ -11,7 +11,7 @@ use tracing_subscriber::{reload::Handle, EnvFilter};
 // A dmenu based power menu for common actions
 pub fn power_menu() -> KeyHandler {
     key_handler(|state, _| {
-        let options = vec!["lock", "logout", "restart-wm", "shutdown", "reboot"];
+        let options = vec!["lock", "logout", "close-wm", "shutdown", "reboot"];
         let menu = DMenu::new(">>> ", options, DMenuConfig::default());
         let screen_index = state.client_set.current_screen().index();
 
@@ -21,7 +21,7 @@ pub fn power_menu() -> KeyHandler {
                 "logout" => spawn("pkill -fi penrose"),
                 "shutdown" => spawn("sudo shutdown -h now"),
                 "reboot" => spawn("sudo reboot"),
-                //"restart-wm" => exit(0), // Wrapper script then handles restarting us
+                "close-wm" => exit(0), // Wrapper script then handles restarting us
                 _ => unimplemented!(),
             }
         } else {

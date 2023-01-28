@@ -73,6 +73,7 @@ where
         "M-S-i" => spawn("dmenuunicode"), //terminal emoji
         "M-x" => spawn("zathura ~/.local/share/jars_help.pdf "), //help menu
         "M-h" => spawn("templates_tex"), //tex templates helper
+        "M-h" => spawn("games"), //games launcher from ~/Games folder
 
 
 
