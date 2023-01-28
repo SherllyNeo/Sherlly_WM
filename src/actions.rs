@@ -4,24 +4,25 @@ use penrose::{
     custom_error,
     extensions::util::dmenu::{DMenu, DMenuConfig, MenuMatch},
     util::spawn,
+
 };
 use tracing::warn;
 use tracing_subscriber::{reload::Handle, EnvFilter};
 
+
 // A dmenu based power menu for common actions
 pub fn power_menu() -> KeyHandler {
     key_handler(|state, _| {
-        let options = vec!["lock", "logout", "close-wm", "shutdown", "reboot"];
+        let options = vec!["lock", "logout", "shutdown", "reboot"];
         let menu = DMenu::new(">>> ", options, DMenuConfig::default());
         let screen_index = state.client_set.current_screen().index();
 
         if let Ok(MenuMatch::Line(_, choice)) = menu.run(screen_index) {
             match choice.as_ref() {
                 "lock" => spawn("slock"),
-                "logout" => spawn("pkill -fi penrose"),
+                "logout" => spawn("pkill -fi Xorg"),
                 "shutdown" => spawn("sudo shutdown -h now"),
                 "reboot" => spawn("sudo reboot"),
-                "close-wm" => exit(0), // Wrapper script then handles restarting us
                 _ => unimplemented!(),
             }
         } else {
