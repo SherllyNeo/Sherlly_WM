@@ -1,10 +1,10 @@
-use crate::actions::{power_menu, set_tracing_filter};
+use crate::actions::power_menu;
 use crate::KeyHandler;
 use penrose::{
     builtin::{
         actions::{
             floating::{float_focused, reposition, resize, sink_all, sink_focused},
-            log_current_state, modify_with, send_layout_message, spawn,
+            modify_with, send_layout_message, spawn,
         },
         layout::messages::{ExpandMain, IncMain, ShrinkMain},
     },
@@ -20,7 +20,7 @@ const DELTA: i32 = 10;
 // Generate a raw key binding map in terms of parsable string key bindings rather than resolved key codes
 pub fn raw_key_bindings<L, S>(
     toggle_scratch: ToggleNamedScratchPad,
-    handle: Handle<L, S>,
+    _handle: Handle<L, S>,
 ) -> HashMap<String, KeyHandler>
 where
     L: From<EnvFilter> + 'static,
@@ -98,9 +98,6 @@ where
         "M-C-k" => reposition(0, -DELTA),
         "M-C-j" => reposition(0, DELTA),
 
-        // Debugging
-        "M-A-t" => set_tracing_filter(handle),
-        "M-S-s" => log_current_state(),
     };
 
     for tag in &["1", "2", "3", "4", "5", "6", "7", "8", "9"] {
