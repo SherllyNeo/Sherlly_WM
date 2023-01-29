@@ -55,6 +55,7 @@ where
         "M-A-s" => spawn("st -e maim screenshot.png"),
         "M-d" => spawn("dmenu_run"),
         "M-t" => spawn("st"),
+        "M-S-t" => spawn("to_do"), //to do program
         "M-slash" => Box::new(toggle_scratch),
         "M-w" => spawn("librewolf"), // browser
         "M-S-w" => spawn("st -e nmtui"), // wifi
