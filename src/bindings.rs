@@ -52,7 +52,7 @@ where
         "M-Left" => send_layout_message(|| ShrinkMain),
 
         // Launchers
-        "M-A-s" => spawn("maim -s new_screenshot.png"),
+        "M-A-s" => spawn("flameshot gui"), //screenshot
         "M-d" => spawn("dmenu_run"),
         "M-t" => spawn("st"),
         "M-S-t" => spawn("to_do"), //to do program
