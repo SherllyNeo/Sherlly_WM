@@ -22,7 +22,7 @@ pub fn power_menu() -> KeyHandler {
                 "lock" => spawn("slock"),
                 "logout" => spawn("pkill -fi Xorg"),
                 "shutdown" => spawn("sudo shutdown -h now"),
-                "reboot" => spawn("sudo reboot"),
+                "reboot" => spawn("sudo reboot -h now"),
                 _ => unimplemented!(),
             }
         } else {

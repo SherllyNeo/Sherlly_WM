@@ -75,6 +75,7 @@ where
         "M-x" => spawn("zathura ~/.local/share/jars_help.pdf "), //help menu
         "M-h" => spawn("templates_tex"), //tex templates helper
         "M-g" => spawn("games"), //games launcher from ~/Games folder
+        "M-s" => spawn("study_notes"), //study notes
 
 
 

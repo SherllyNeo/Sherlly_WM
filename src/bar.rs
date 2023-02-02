@@ -80,7 +80,7 @@ pub fn status_bar<X: XConn>() -> penrose_ui::Result<StatusBar<X>> {
 
     let style = TextStyle {
         font: FONT.to_string(),
-        point_size: 10,
+        point_size: 13,
         fg: WHITE.into(),
         bg: Some(BLACK.into()),
         padding: (2.0, 2.0),
