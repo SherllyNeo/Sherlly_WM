@@ -120,7 +120,7 @@ pub fn status_bar<X: XConn>() -> penrose_ui::Result<StatusBar<X>> {
             )),
             Box::new(wifi_check(&padded_style)),
             Box::new(name(&padded_style)),
-            Box::new(wifi_network(&padded_style)),
+            //Box::new(wifi_network(&padded_style)),
             Box::new(battery_sum("BAT1", &padded_style)),
             Box::new(battery_sum("BAT0", &padded_style)),
             Box::new(weather_sum(&padded_style)),
