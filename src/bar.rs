@@ -70,6 +70,14 @@ pub fn weather_sum(style: &TextStyle) -> RefreshText {
             .to_string()
     })
 }
+pub fn wifi_check(style: &TextStyle) -> RefreshText {
+    RefreshText::new(style, || {
+        spawn_for_output_with_args("check_wifi",&[""])
+            .unwrap_or_default()
+            .trim()
+            .to_string()
+    })
+}
 
 
 // Mostly the example dwm bar from the main repo but recreated here so it's easier to tinker
@@ -110,6 +118,7 @@ pub fn status_bar<X: XConn>() -> penrose_ui::Result<StatusBar<X>> {
                 true,
                 false,
             )),
+            Box::new(wifi_check(&padded_style)),
             Box::new(name(&padded_style)),
             Box::new(wifi_network(&padded_style)),
             Box::new(battery_sum("BAT1", &padded_style)),
