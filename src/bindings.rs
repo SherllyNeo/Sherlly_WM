@@ -65,7 +65,7 @@ where
         "M-c" => spawn("st -e bc"), //calculator
         "M-p" => spawn("st -e abook"), //phone book
         "M-m" => spawn("st -e bashtop"), //manager
-        "M-z" => spawn("st -e kp_bash"), //password manger
+        "M-z" => spawn("st -e pass_manager"), //password manger
         "M-i" => spawn("display_bookmarks"), //open bookmarks
         "M-b" => spawn("bookmark_clipped"), //bookmark whats copied
         "M-S-m" => spawn("st -e ncmpcpp"), //music player
