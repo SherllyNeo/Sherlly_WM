@@ -19,7 +19,7 @@ pub const BLUE: u32 = 0x458588ff;
 pub const RED: u32 = 0xd83917ff;
 
 pub const MAX_MAIN: u32 = 1;
-pub const RATIO: f32 = 0.8; //changed from 0.6
+pub const RATIO: f32 = 0.6; //changed from 0.6
 pub const RATIO_STEP: f32 = 0.1;
 pub const OUTER_PX: u32 = 10; //changed from 5
 pub const INNER_PX: u32 = 10; //changed from 5

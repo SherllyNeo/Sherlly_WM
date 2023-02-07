@@ -50,7 +50,7 @@ pub fn dt(style: &TextStyle) -> RefreshText {
 }
 pub fn name(style: &TextStyle) -> RefreshText {
     RefreshText::new(style, || {
-        spawn_for_output_with_args("sb-hostname",&["Sherlly"])
+        spawn_for_output_with_args("sb-hostname",&[])
             .unwrap_or_default()
             .trim()
             .to_string()
@@ -80,8 +80,6 @@ pub fn wifi_check(style: &TextStyle) -> RefreshText {
 }
 
 
-// Mostly the example dwm bar from the main repo but recreated here so it's easier to tinker
-// with and add in debug widgets when needed.
 pub fn status_bar<X: XConn>() -> penrose_ui::Result<StatusBar<X>> {
     let highlight: Color = RED.into();
     let empty_ws: Color = GREY.into();
@@ -107,7 +105,6 @@ pub fn status_bar<X: XConn>() -> penrose_ui::Result<StatusBar<X>> {
         vec![
             Box::new(Workspaces::new(&style, highlight, empty_ws)),
             Box::new(CurrentLayout::new(&style)),
-            // Box::new(penrose_bar::widgets::debug::StateSummary::new(style)),
             Box::new(ActiveWindowName::new(
                 MAX_ACTIVE_WINDOW_CHARS,
                 &TextStyle {
@@ -120,11 +117,9 @@ pub fn status_bar<X: XConn>() -> penrose_ui::Result<StatusBar<X>> {
             )),
             Box::new(wifi_check(&padded_style)),
             Box::new(name(&padded_style)),
-            //Box::new(wifi_network(&padded_style)),
             Box::new(battery_sum("BAT1", &padded_style)),
             Box::new(battery_sum("BAT0", &padded_style)),
             Box::new(weather_sum(&padded_style)),
-            //Box::new(amixer_volume("Master", &padded_style)),
             Box::new(dt(&padded_style)),
         ],
     )
